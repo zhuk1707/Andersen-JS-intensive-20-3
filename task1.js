@@ -31,15 +31,15 @@ const myIterable = {
     }
 
     if (!this.hasOwnProperty('from') || !this.hasOwnProperty('to')) {
-      error()
+      return error()
     }
 
-    if (isNaN(this.from) || isNaN(this.to)) {
-      error()
+    if (typeof this.from !== 'number' || typeof this.to !== 'number') {
+      return error()
     }
 
     if (this.to < this.from) {
-      error()
+      return error()
     }
 
     if (this.current <= this.to) {
